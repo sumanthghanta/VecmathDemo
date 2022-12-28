@@ -16,11 +16,6 @@ pipeline {
                 sh "mvn clean verify"
             }
         }
-        stage ('build') {
-            steps{
-                 sh "mvn install"
-            }
-        }
         post {
             always {
                  echo 'Thanks for running the job'
@@ -28,4 +23,3 @@ pipeline {
         }
     }
 }
-
