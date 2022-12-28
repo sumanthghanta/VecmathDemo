@@ -19,5 +19,10 @@ pipeline {
                 sh "mvn clean verify"
             }
         }
+        post {
+            always {
+                 echo 'Thanks for running the job'
+            }
+        }
     }   
 }
