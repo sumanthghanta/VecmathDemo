@@ -3,7 +3,7 @@ pipeline {
   }
   stages {
     steps {
-        sh 'echo "${Hello}"
+        echo "Hello"
     }
     stage ('git') {
       steps {
