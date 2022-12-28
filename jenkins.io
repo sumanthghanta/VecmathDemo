@@ -18,10 +18,10 @@ pipeline {
                 sh 'mvn install'
             }
         }
-        post {
+    }   
+    post {
             always {
                  echo 'Thanks for running the job'
             }
         }
-    }   
 }
