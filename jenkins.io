@@ -9,7 +9,7 @@ pipeline {
         }
         stage ('checkout') {
             steps {
-                checkout([$class: 'GitSCM', branches: [[name: '*/sumanth']], extensions: [], userRemoteConfigs: [[url: 'https://github.com/amitvermaa93/jenkins-git-integration.git']]])
+                checkout([$class: 'GitSCM', branches: [[name: '*/sumanth']], extensions: [], userRemoteConfigs: [[url: 'https://github.com/sumanthghanta/VecmathDemo.git']]])
             }
         }
         stage ('build') {
