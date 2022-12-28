@@ -2,19 +2,24 @@ pipeline {
   agent any
 
     stages { 
-        stage ('git') {
+        stage ('print') {
             steps {
-                checkout([$class: 'GitSCM', branches: [[name: '*/main']], extensions: [], userRemoteConfigs: [[url: 'https://github.com/sumanthghanta/VecmathDemo.git']]])
-        }
-        stage ('mvn install and clean') {
-            steps{
-                sh "mvn clean package"
-                sh "mvn install"
+                echo 'Hello World'
             }
         }
-        stage ('print') {
+        stage ('checkout') {
+            steps {
+                checkout([$class: 'GitSCM', branches: [[name: '*/main']], extensions: [], userRemoteConfigs: [[url: 'https://github.com/sumanthghanta/VecmathDemo.git']]])
+            }
+        }
+        stage ('build') {
+            steps{
+                sh "mvn clean verify"
+            }
+        }
+        stage ('build') {
             step{
-                echo "Hello"
+                 sh "mvn install"
             }
         }
         post {
@@ -23,8 +28,4 @@ pipeline {
             }
         }
     }
-    }
 }
-    
-
-      
