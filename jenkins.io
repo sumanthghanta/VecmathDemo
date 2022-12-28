@@ -1,7 +1,7 @@
 pipeline {
   agent any
   tools {
-    maven "mvn install" 
+    maven 'mvn install'
   }
   stages { 
         stage ('print') {
