@@ -1,7 +1,9 @@
 pipeline {
   agent any
-
-    stages { 
+  tools {
+    maven "mvn install" 
+  }
+  stages { 
         stage ('print') {
             steps {
                 echo 'Hello World'
@@ -17,15 +19,5 @@ pipeline {
                 sh "mvn clean verify"
             }
         }
-        stage ('build') {
-            step{
-                 sh "mvn install"
-            }
-        }
-        post {
-            always {
-                 echo 'Thanks for running the job'
-            }
-        }
-    }
+    }   
 }
